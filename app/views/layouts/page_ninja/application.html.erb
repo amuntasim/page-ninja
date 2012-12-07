@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PageNinja</title>
+  <%= stylesheet_link_tag    "page_ninja/application", :media => "all" %>
+  <%= javascript_include_tag "page_ninja/application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

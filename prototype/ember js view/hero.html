@@ -88,21 +88,25 @@
         <!-- Example row of columns -->
         <div class="row">
             {{#each portfolios}}
+            {{#view Page.PageView contentBinding="this"}}
             <div class="span4">
-                <h2>{{title}}</h2>
+                <h2>{{title}} {{view Ember.TextField valueBinding="title"}} </h2>
 
                 <p>{{description}}</p>
 
                 <p><a class="btn" href="#">{{button_text}}</a></p>
+                <a href="#" {{action "edit" on="click"}} data-obj="portfolios">edit</a>
             </div>
+            {{/view}}
             {{/each}}
-            <a href="#" class="btn" {{action "addMore" on="click"}} data-obj="portfolios">Add More</a>
         </div>
 
         <hr>
+        <a href="#" class="btn" {{action "addMore" on="click"}} data-obj="portfolios">Add More</a>
+        <hr>
 
         <footer>
-            <p>&copy; Company 2012</p>
+            <a class="btn btn-primary btn-large" onclick="alert(JSON.stringify(Page.PageController.content));">Show json</a>
         </footer>
 
     </div>
@@ -110,7 +114,6 @@
     {{/with}}
 
 </script>
-<a class="btn btn-primary btn-large" onclick="alert(JSON.stringify(Page.PageController.content));">Show json</a>
 <!-- /container -->
 
 <!-- Le javascript

@@ -17,13 +17,39 @@ Page.PageView = Ember.View.extend({
 
         var content = JSON.parse(JSON.stringify(Page.PageController.content));
         addMoreElem(prop_name, content);
+    },
+
+    edit:function (event) {
+        var prop_name = $(event.target).data("obj");
+        console.log(event);
+        var content = this.getPath('content');
+        content['editing'] = true;
+        console.log(content);
+    },
+
+    doneEditing:function (event) {
+        var prop_name = $(event.target).data("obj");
+        console.log(event);
+        var content = this.getPath('content');
+        content['editing'] = true;
+        console.log(content);
     }
+});
+
+AView = Ember.View.extend({
+    eventManager: Ember.Object.create({
+        doubleClick: function(event, view){
+            // will be called when when an instance's
+            // rendered element or any rendering
+            // of this views's descendent
+            // elements is clicked
+        }
+    })
 });
 
 
 function addMoreElem(prop_name, content) {
     xinspect(prop_name, content);
-//    console.log(content);
     Page.PageController.setProperties(content);
 
 }

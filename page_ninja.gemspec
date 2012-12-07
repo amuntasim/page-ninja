@@ -1,11 +1,11 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "page-ninja/version"
+require "page_ninja/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "page-ninja"
+  s.name        = "page_ninja"
   s.version     = PageNinja::VERSION
   s.authors     = ["TODO: Your name"]
   s.email       = ["TODO: Your email"]

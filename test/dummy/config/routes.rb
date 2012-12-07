@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
 
-  mount PageNinja::Engine => "/page-ninja"
+  mount PageNinja::Engine => "/pages"
+  root :to => 'home#index'
 end

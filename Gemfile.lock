@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    page-ninja (0.0.1)
+    page_ninja (0.0.1)
       rails (~> 3.2.8)
 
 GEM
@@ -94,5 +94,5 @@ PLATFORMS
 
 DEPENDENCIES
   jquery-rails
-  page-ninja!
+  page_ninja!
   sqlite3

@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :page-ninja do
+# task :page_ninja do
 #   # Task goes here
 # end

@@ -1,6 +1,9 @@
 Page = Ember.Application.create();
 Page.PageController = Ember.ObjectController.create({
-    content:{portfolios:[
+    content:{title: 'Hello, world!',
+        dialog: 'This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.',
+        hero_button_text: 'Learn more »',
+        portfolios:[
         {title:'Heading',
             description:'Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. ',
             button_text:'View details »',

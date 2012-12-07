@@ -75,40 +75,53 @@
 
         <!-- Main hero unit for a primary marketing message or call to action -->
         <div class="hero-unit">
-            <h1>Hello, world!</h1>
 
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called
-                the
-                hero unit and three supporting pieces of content. Use it as a starting point to create something more
-                unique.</p>
+            {{#view Page.PageView contentBinding="this"}}
 
-            <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+            {{#unless editing}}
+
+            <h1>{{title}}</h1>
+            <p>{{dialog}}</p>
+            <p><a class="btn btn-primary btn-large">{{hero_button_text}}</a></p>
+
+            {{/unless}}
+
+            {{#if editing}}
+
+            <h1>{{view Ember.TextField valueBinding="title"}}</h1>
+            <p>{{view Ember.TextArea valueBinding="dialog"}}</p>
+            <p class="btn btn-primary btn-large">{{view Ember.TextField valueBinding="hero_button_text"}}</p>
+
+            {{/if}}
+
+            <span admin-only>Editing {{view Ember.Checkbox checkedBinding="editing"}}</span>
+            {{/view}}
+
         </div>
 
         <!-- Example row of columns -->
         <div class="row">
             {{#each portfolios}}
             {{#view Page.PageView contentBinding="this"}}
+
             {{#unless editing}}
             <div class="span4">
                 <h2>{{title}}</h2>
-
                 <p>{{description}}</p>
-
                 <p><a class="btn" href="#">{{button_text}}</a></p>
-                Editing {{view Ember.Checkbox checkedBinding="editing"}}
+                <span admin-only>Editing {{view Ember.Checkbox checkedBinding="editing"}}</span>
             </div>
             {{/unless}}
+
             {{#if editing}}
             <div class="span4">
                 <h2>{{view Ember.TextField valueBinding="title"}}</h2>
-
                 <p>{{view Ember.TextArea valueBinding="description"}}</p>
-
-                <p><a class="btn" href="#">{{button_text}}</a></p>
-                Editing {{view Ember.Checkbox checkedBinding="editing"}}
+                <p class="btn">{{view Ember.TextField valueBinding="button_text"}}</p>
+                <span admin-only>Editing {{view Ember.Checkbox checkedBinding="editing"}}</span>
             </div>
             {{/if}}
+
             {{/view}}
             {{/each}}
         </div>

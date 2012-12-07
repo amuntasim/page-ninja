@@ -89,14 +89,26 @@
         <div class="row">
             {{#each portfolios}}
             {{#view Page.PageView contentBinding="this"}}
+            {{#unless editing}}
             <div class="span4">
-                <h2>{{title}} {{view Ember.TextField valueBinding="title"}} </h2>
+                <h2>{{title}}</h2>
 
                 <p>{{description}}</p>
 
                 <p><a class="btn" href="#">{{button_text}}</a></p>
-                <a href="#" {{action "edit" on="click"}} data-obj="portfolios">edit</a>
+                Editing {{view Ember.Checkbox checkedBinding="editing"}}
             </div>
+            {{/unless}}
+            {{#if editing}}
+            <div class="span4">
+                <h2>{{view Ember.TextField valueBinding="title"}}</h2>
+
+                <p>{{view Ember.TextArea valueBinding="description"}}</p>
+
+                <p><a class="btn" href="#">{{button_text}}</a></p>
+                Editing {{view Ember.Checkbox checkedBinding="editing"}}
+            </div>
+            {{/if}}
             {{/view}}
             {{/each}}
         </div>

@@ -3,10 +3,12 @@ Page.PageController = Ember.ObjectController.create({
     content:{portfolios:[
         {title:'Heading',
             description:'Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. ',
-            button_text:'View details »'},
+            button_text:'View details »',
+            editing: false},
         {title:'Heading',
             description:'Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. ',
-            button_text:'View details »'}
+            button_text:'View details »',
+            editing: false}
     ]}
 });
 
@@ -19,19 +21,15 @@ Page.PageView = Ember.View.extend({
         addMoreElem(prop_name, content);
     },
 
-    edit:function (event) {
-        var prop_name = $(event.target).data("obj");
-        console.log(event);
+    edit:function () {
         var content = this.getPath('content');
-        content['editing'] = true;
+        content.set("editing", true);
         console.log(content);
     },
 
-    doneEditing:function (event) {
-        var prop_name = $(event.target).data("obj");
-        console.log(event);
+    doneEditing:function () {
         var content = this.getPath('content');
-        content['editing'] = true;
+        content.set("editing", true);
         console.log(content);
     }
 });

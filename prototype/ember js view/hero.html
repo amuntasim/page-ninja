@@ -81,7 +81,9 @@
             {{#unless editing}}
 
             <h1>{{title}}</h1>
+
             <p>{{dialog}}</p>
+
             <p><a class="btn btn-primary btn-large">{{hero_button_text}}</a></p>
 
             {{/unless}}
@@ -89,7 +91,9 @@
             {{#if editing}}
 
             <h1>{{view Ember.TextField valueBinding="title"}}</h1>
+
             <p>{{view Ember.TextArea valueBinding="dialog"}}</p>
+
             <p class="btn btn-primary btn-large">{{view Ember.TextField valueBinding="hero_button_text"}}</p>
 
             {{/if}}
@@ -107,7 +111,9 @@
             {{#unless editing}}
             <div class="span4">
                 <h2>{{title}}</h2>
+
                 <p>{{description}}</p>
+
                 <p><a class="btn" href="#">{{button_text}}</a></p>
                 <span admin-only>Editing {{view Ember.Checkbox checkedBinding="editing"}}</span>
             </div>
@@ -116,7 +122,9 @@
             {{#if editing}}
             <div class="span4">
                 <h2>{{view Ember.TextField valueBinding="title"}}</h2>
+
                 <p>{{view Ember.TextArea valueBinding="description"}}</p>
+
                 <p class="btn">{{view Ember.TextField valueBinding="button_text"}}</p>
                 <span admin-only>Editing {{view Ember.Checkbox checkedBinding="editing"}}</span>
             </div>
@@ -124,6 +132,38 @@
 
             {{/view}}
             {{/each}}
+        </div>
+
+        <br><br>
+        <div class="row">
+
+            <table class="table table-bordered table-striped">
+                <tbody>
+
+                {{#each portfolios}}
+                {{#view Page.PageView contentBinding="this"}}
+                <tr>
+
+                {{#unless editing}}
+                    <td admin-only>{{view Ember.Checkbox checkedBinding="editing"}}</td>
+                    <td>{{title}}</td>
+                    <td>{{description}}</td>
+                    <td>{{button_text}}</td>
+                {{/unless}}
+
+                {{#if editing}}
+                    <td admin-only>{{view Ember.Checkbox checkedBinding="editing"}}</td>
+                    <td>{{view Ember.TextField valueBinding="title"}}</td>
+                    <td>{{view Ember.TextArea valueBinding="description"}}</td>
+                    <td>{{view Ember.TextField valueBinding="button_text"}}</td>
+                {{/if}}
+
+                </tr>
+                {{/view}}
+                {{/each}}
+
+                </tbody>
+            </table>
         </div>
 
         <hr>

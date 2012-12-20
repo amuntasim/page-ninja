@@ -14,7 +14,7 @@ app.directive('editableString', function factory() {
                  '<span ng-show="editMode">' +
                     '<input ng-enter="editMode=false" type="text" ng-model="prop"/><a herf="#" ng-click="editMode=false">done</a>' +
                  '</span>',
-        restrict:'E',
+        restrict:'AE',
         scope: {prop: '=bind'}
     };
 });
@@ -24,7 +24,7 @@ app.directive('editableText', function factory() {
                  '<span ng-show="editMode">' +
                     '<textarea ng-model="prop"></textarea><a herf="#" ng-click="editMode=false">done</a>' +
                  '</span>',
-        restrict:'E',
+        restrict:'AE',
         scope: {prop: '=bind'}
     };
 });
@@ -42,9 +42,13 @@ function PageCtrl($scope) {
                 button_text:'View details »'}
         ]};
 
-    $scope.addNew = function () {
-        if ($scope.allowedToAddNew()) {
-            $scope.stories.push({id:0, title:'', description:'', editing:true})
+    $scope.addMore = function (exp) {
+        var nestedVar = exp.split('.');
+        var scope = $scope;
+        for(var i=0 ; i < nestedVar.length ; i++) {
+            scope = scope[nestedVar[i]];
         }
+        var newClonedObject = JSON.parse(JSON.stringify(scope[scope.length - 1]));
+        scope.push(newClonedObject);
     };
 }

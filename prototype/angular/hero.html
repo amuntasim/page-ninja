@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+    <meta charset="utf-8">
+    <title>Story</title>
+
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-wysihtml5.css" rel="stylesheet">
+    <link href="assets/css/stories.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body ng-controller="PageCtrl">
+<div class="container">
+    <div class="hero-unit">
+        <h2>
+            <span ng-hide="editMode" ng-dblclick="editMode=true">{{page.title}}</span>
+            <span ng-show="editMode" ng-dblclick="editMode=false">
+                <input type="text" ng-model="page.title"/><a herf="#" ng-click="editMode=false">done</a>
+            </span>
+        </h2>
+        <hr>
+        {{page}}
+    </div>
+
+</div>
+<!-- /container -->
+<script src="assets/js/lib/require.js"></script>
+<script src="assets/js/requirejs_config.js"></script>
+<script src="assets/js/lib/angular.js"></script>
+<script src="assets/js/page.js"></script>
+</body>
+</html>

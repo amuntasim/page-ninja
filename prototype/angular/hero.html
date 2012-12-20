@@ -67,7 +67,7 @@
     <div class="row">
         <div class="span4" ng-repeat="portfolio in page.portfolios">
             <h2><editable-string bind="portfolio.title"/></h2>
-            <p>{{portfolio.description}}</p>
+            <p><editable-text bind="portfolio.description"/></p>
             <p><a class="btn" href="#">View details &raquo;</a></p>
         </div>
     </div>

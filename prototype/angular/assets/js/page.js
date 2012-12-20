@@ -1,5 +1,14 @@
 var app = angular.module('editable', []);
 
+var editableStringTemplate = '<span ng-hide="editMode" ng-dblclick="editMode=true">{{prop}}</span>' +
+                             '<span ng-show="editMode">' +
+                                '<input ng-enter="editMode=false" type="text" ng-model="prop"/><a herf="#" ng-click="editMode=false">done</a>' +
+                             '</span>';
+var editableTextTemplate = '<span ng-hide="editMode" ng-dblclick="editMode=true">{{prop}}</span>' +
+                           '<span ng-show="editMode">' +
+                               '<textarea ng-model="prop"></textarea><a herf="#" ng-click="editMode=false">done</a>' +
+                           '</span>';
+
 app.directive('ngEnter', function() {
     return function(scope, elm, attrs) {
         elm.bind('keypress', function(e) {
@@ -10,20 +19,14 @@ app.directive('ngEnter', function() {
 
 app.directive('editableString', function factory() {
     return {
-        template:'<span ng-hide="editMode" ng-dblclick="editMode=true">{{prop}}</span>' +
-                 '<span ng-show="editMode">' +
-                    '<input ng-enter="editMode=false" type="text" ng-model="prop"/><a herf="#" ng-click="editMode=false">done</a>' +
-                 '</span>',
+        template: editableStringTemplate,
         restrict:'AE',
         scope: {prop: '=bind'}
     };
 });
 app.directive('editableText', function factory() {
     return {
-        template:'<span ng-hide="editMode" ng-dblclick="editMode=true">{{prop}}</span>' +
-                 '<span ng-show="editMode">' +
-                    '<textarea ng-model="prop"></textarea><a herf="#" ng-click="editMode=false">done</a>' +
-                 '</span>',
+        template: editableTextTemplate,
         restrict:'AE',
         scope: {prop: '=bind'}
     };

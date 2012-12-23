@@ -32,10 +32,19 @@ app.directive('editableText', function factory() {
     };
 });
 
+//app.directive('addMore', function factory() {
+//    return {
+//        template: '<a href="#" class="btn" ng-click="addMore()">Add More</a>',
+//        restrict:'AE',
+//        scope: {prop: '=bind'}
+//    };
+//});
+//
 function PageCtrl($scope) {
     $scope.page = {title:'Hello, world!',
         dialog:'This is a template for a simple marketing or informational website.',
         hero_button_text:'Learn more »',
+        menu:[{text: 'Home', link: '#'}],
         portfolios:[
             {title:'Heading',
                 description:'Donec',

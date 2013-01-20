@@ -1,0 +1,11 @@
+page:
+  name: about_us
+  layout: page_ninja_default
+  content:
+    body:
+      :type: array
+      :data:
+      - :title: title1
+        :desc: Desc1
+      - :title: title2
+        :desc: Desc2

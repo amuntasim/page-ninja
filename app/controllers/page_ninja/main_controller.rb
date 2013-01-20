@@ -10,6 +10,7 @@ module PageNinja
       respond_to do |format|
         format.html {render :layout => "page_ninja/#{@data["page"]["layout"]}"}
         format.js
+        format.json {render :json => @data.to_json}
       end
     end
 

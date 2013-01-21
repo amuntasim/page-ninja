@@ -49,11 +49,9 @@ function PageCtrl($scope) {
         ],
         portfolios:[
             {title:'Heading',
-                description:'Donec',
-                button_text:'View details »'},
+                description:'Donec'},
             {title:'Heading',
-                description:'Donec',
-                button_text:'View details »'}
+                description:'Donec'}
         ]};
 
     $scope.addMore = function (parentObj) {

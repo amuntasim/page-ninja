@@ -60,6 +60,7 @@ function PageCtrl($scope) {
         var newClonedObject = JSON.parse(JSON.stringify(parentObj[parentObj.length - 1]));
         parentObj.push(newClonedObject);
     };
+
     $scope.remove = function (portfolios, portfolio) {
         removeItem(portfolios, portfolio);
     };

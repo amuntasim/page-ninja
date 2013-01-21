@@ -61,6 +61,10 @@ function PageCtrl($scope) {
         parentObj.push(newClonedObject);
     };
 
+    $scope.addMoreWith = function (parentObj, obj) {
+        parentObj.push(obj);
+    };
+
     $scope.remove = function (portfolios, portfolio) {
         removeItem(portfolios, portfolio);
     };
